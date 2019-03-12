@@ -1,22 +1,21 @@
 package day1
 
+import output.OutputFormatter.formatSolutions
+import parsing.FileParser.readFileToLines
+
 import scala.collection.immutable.Stream.continually
 import scala.collection.mutable
-import scala.io.Source
 
 object Day1Solver extends App {
 
-  private val lines: Traversable[Int] = Source.fromResource("day1.txt")
-    .getLines()
-    .toStream
+  private val lines: Traversable[Int] = readFileToLines("day1.txt")
     .map(line => line.toInt)
-
   private val solver = new Day1Solver
-  println(
-    s"""##### Day 01 Solution #####
-       |# Part A: ${solver.solvePartA(lines)}
-       |# Part B: ${solver.solvePartB(lines)}
-    """.stripMargin
+
+  println(formatSolutions(
+    solver.solvePartA(lines),
+    solver.solvePartB(lines),
+    1)
   )
 
 }
