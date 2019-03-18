@@ -12,6 +12,10 @@ class Day2SolverTest extends FunSuite with PrivateMethodTester {
     assert(solver.solvePartA(example.toStream) == 12)
   }
 
+  test("testPartB_whenExampleFromProblemStatement_thenReturn fgij") {
+    val example = Array("abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz")
+    assert(solver.solvePartB(example.toList) == "fgij")
+  }
 
   test("testCheckForDoublesAndTriplets_givenNoMatches_thenNoMatchesFound") {
     assert(solver.checkForDoublesAndTriplets("") == (false, false))
@@ -44,6 +48,16 @@ class Day2SolverTest extends FunSuite with PrivateMethodTester {
   test("testCheckForDoublesAndTriplets_givenMultipleTriplesAndDoubles_thenFindTripleAndDouble") {
     assert(solver.checkForDoublesAndTriplets("addacabcbb") == (true, true))
     assert(solver.checkForDoublesAndTriplets("teevxtxnetvj") == (true, true))
+  }
+
+  test("getMatchingChars_givenEqualString_returnsFullString") {
+    assert(solver.getMatchingChars("abcdefgh", "abcdefgh") == "abcdefgh")
+  }
+
+  test("getMatchingChars_givenStringWithdifferences_returnsOnlyMatchingString") {
+    assert(solver.getMatchingChars("abcdefgj", "abcdefgh") == "abcdefg")
+    assert(solver.getMatchingChars("abklefgh", "abcdefgh") == "abefgh")
+    assert(solver.getMatchingChars("fbcdffgf", "abcdefgh") == "bcdfg")
   }
 
 }
