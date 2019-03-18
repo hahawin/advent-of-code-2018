@@ -9,7 +9,7 @@ object FileParser {
   }
 
   def readFileToLines(inputResource: String): Stream[String]= {
-    Source.fromResource("day1.txt")
+    Source.fromResource(inputResource)
       .getLines()
       .toStream
   }

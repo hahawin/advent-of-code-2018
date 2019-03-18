@@ -2,9 +2,15 @@ package day2
 
 import org.scalatest.{FunSuite, PrivateMethodTester}
 
-class Day2SolverTest extends FunSuite with PrivateMethodTester{
+class Day2SolverTest extends FunSuite with PrivateMethodTester {
 
-  val solver : Day2Solver = new Day2Solver
+  val solver: Day2Solver = new Day2Solver
+
+  test("testPartA_whenExampleFromProblemStatement_thenReturn 12") {
+    val example = Array("abcdef", "abcdef", "bababc", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab")
+
+    assert(solver.solvePartA(example.toStream) == 12)
+  }
 
 
   test("testCheckForDoublesAndTriplets_givenNoMatches_thenNoMatchesFound") {
