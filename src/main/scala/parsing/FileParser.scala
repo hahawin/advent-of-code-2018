@@ -8,10 +8,9 @@ object FileParser {
     Source.fromResource(inputResource).mkString
   }
 
-  def readFileToLines(inputResource: String): Stream[String]= {
+  def readFileToLines(inputResource: String): Iterator[String]= {
     Source.fromResource(inputResource)
       .getLines()
-      .toStream
   }
 
 }
