@@ -5,16 +5,16 @@ import parsing.FileParser.readFileToLines
 
 
 object Day2Solver extends App {
-  private val boxIds: Iterator[String] = readFileToLines("day2.txt")
+  private val boxIds: List[String] = readFileToLines("day2.txt")
   private val solver = new Day2Solver()
 
-  println(formatSolutions(solver.solvePartA(boxIds).toString,
-    solver.solvePartB(boxIds.toList),
+  println(formatSolutions(solver.solvePartA(boxIds.toStream).toString,
+    solver.solvePartB(boxIds),
     2))
 }
 
 class Day2Solver {
-  def solvePartA(boxIds: Iterator[String]): Int = {
+  def solvePartA(boxIds: Stream[String]): Int = {
     val (doubles, triples) = boxIds
       .map(boxIds => checkForDoublesAndTriplets(boxIds))
       .map(booleanTuple => (boolToInt(booleanTuple._1), boolToInt(booleanTuple._2)))

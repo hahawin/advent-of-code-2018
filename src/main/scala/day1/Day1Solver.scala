@@ -8,7 +8,7 @@ import scala.collection.mutable
 
 object Day1Solver extends App {
 
-  private val lines: Iterator[Int] = readFileToLines("day1.txt")
+  private val lines: List[Int] = readFileToLines("day1.txt")
     .map(line => line.toInt)
   private val solver = new Day1Solver
 
@@ -22,11 +22,11 @@ object Day1Solver extends App {
 
 class Day1Solver {
 
-  def solvePartA(inputLines: Iterator[Int]): Int = {
+  def solvePartA(inputLines: List[Int]): Int = {
     inputLines.sum
   }
 
-  def solvePartB(inputLines: Iterator[Int]): Int = {
+  def solvePartB(inputLines: List[Int]): Int = {
     val previousValues = new mutable.HashSet[Int]()
     continually(inputLines.toStream)
       .flatten

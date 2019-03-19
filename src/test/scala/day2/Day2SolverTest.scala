@@ -9,7 +9,7 @@ class Day2SolverTest extends FunSuite with PrivateMethodTester {
   test("testPartA_whenExampleFromProblemStatement_thenReturn 12") {
     val example = Array("abcdef", "abcdef", "bababc", "abbcde", "abcccd", "aabcdd", "abcdee", "ababab")
 
-    assert(solver.solvePartA(example.iterator) == 12)
+    assert(solver.solvePartA(example.toStream) == 12)
   }
 
   test("testPartB_whenExampleFromProblemStatement_thenReturn fgij") {
