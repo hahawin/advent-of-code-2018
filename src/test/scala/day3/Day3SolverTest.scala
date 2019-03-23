@@ -25,7 +25,7 @@ class Day3SolverTest extends FunSuite {
     assert(solver.solvePartA(example) == 6)
   }
 
-  test("testPartB when example from problem, return 3") {
+  test("testPartB when example from problem statement, return 3") {
     val example = List(
       new Rectangle(1, new Location(1,3), 4,4),
       new Rectangle(2, new Location(3,1), 4,4),
